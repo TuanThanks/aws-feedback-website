@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Share your feedback with our team.">
+  <title>Feedback Center</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="page-shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Feedback Center home"><span class="brand-mark">F</span> Feedback Center</a>
+      <span class="topbar-label">CUSTOMER EXPERIENCE</span>
+    </header>
+
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow"><span class="eyebrow-dot"></span> WE ARE LISTENING</span>
+        <h1>Your voice helps us <span>do better.</span></h1>
+        <p>Tell us about your experience. Your feedback helps our team improve the products and services you rely on.</p>
+        <div class="trust-note"><span class="shield-icon">✓</span><span>Your message is securely submitted to our support team.</span></div>
+      </div>
+
+      <section class="form-card" aria-labelledby="form-title">
+        <div class="form-heading">
+          <div>
+            <span class="form-kicker">CUSTOMER FEEDBACK</span>
+            <h2 id="form-title">Send us a message</h2>
+            <p>All fields are required.</p>
+          </div>
+          <div class="message-icon" aria-hidden="true">✉</div>
+        </div>
+
+        <form id="feedback-form">
+          <label for="full_name">Full name</label>
+          <input id="full_name" name="full_name" type="text" maxlength="100" placeholder="e.g. Nguyen Van An" autocomplete="name" required>
+
+          <div class="field-row">
+            <div class="field-group">
+              <label for="phone">Phone number</label>
+              <input id="phone" name="phone" type="tel" maxlength="20" placeholder="e.g. +84 912 345 678" autocomplete="tel" required>
+            </div>
+            <div class="field-group">
+              <label for="email">Email address</label>
+              <input id="email" name="email" type="email" maxlength="100" placeholder="you@example.com" autocomplete="email" required>
+            </div>
+          </div>
+
+          <label for="message">Your message</label>
+          <textarea id="message" name="message" rows="5" maxlength="5000" placeholder="Please share your feedback with us..." required></textarea>
+
+          <button id="submit-button" type="submit"><span>Submit feedback</span><span aria-hidden="true">→</span></button>
+          <p id="form-status" class="form-status" role="status" aria-live="polite"></p>
+        </form>
+        <div class="privacy-note"><span aria-hidden="true">▣</span> Your information is handled securely.</div>
+      </section>
+    </section>
+
+    <footer class="footer"><span>© <span id="year"></span> Feedback Center</span><span>Built with care for better experiences.</span></footer>
+  </main>
+  <script src="/app.js" defer></script>
+</body>
+</html>

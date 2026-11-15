@@ -1,0 +1,19 @@
+{
+  "name": "aws-feedback-website",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Customer feedback website for AWS EC2, Docker and RDS PostgreSQL",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0",
+    "helmet": "^8.1.0",
+    "pg": "^8.16.3"
+  }
+}

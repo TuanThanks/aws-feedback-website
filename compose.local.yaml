@@ -1,0 +1,35 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: feedback-local-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: feedback
+      POSTGRES_USER: feedback_admin
+      POSTGRES_PASSWORD: local_dev_password_change_me
+    volumes:
+      - feedback_pgdata:/var/lib/postgresql/data
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U feedback_admin -d feedback"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  web:
+    environment:
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_NAME: feedback
+      DB_USER: feedback_admin
+      DB_PASSWORD: local_dev_password_change_me
+      DB_SSL: "false"
+      SYNC_API_KEY: local_sync_key_change_me
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "3000:3000"
+
+volumes:
+  feedback_pgdata:

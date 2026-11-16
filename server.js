@@ -35,9 +35,23 @@ const pool = new Pool({
   connectionTimeoutMillis: 5000
 });
 
+
 app.disable('x-powered-by');
-app.use(helmet());
+
+app.use(
+  helmet({
+    contentSecurityPolicy: {
+      directives: {
+        ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+        'upgrade-insecure-requests': null,
+      },
+    },
+    strictTransportSecurity: false,
+  })
+);
+
 app.use(express.json({ limit: '20kb' }));
+
 app.use(express.urlencoded({ extended: false, limit: '20kb' }));
 app.use(express.static('public', { extensions: ['html'] }));
 

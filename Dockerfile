@@ -17,4 +17,4 @@ HEALTHCHECK --interval=30s --timeout=5s --start-period=10s --retries=3 \
 
 CMD ["node", "server.js"]
 # Add the AWS RDS CA bundle at certs/global-bundle.pem before an RDS deployment.
-# COPY certs/global-bundle.pem ./certs/global-bundle.pem
+COPY certs/global-bundle.pem ./certs/global-bundle.pem
